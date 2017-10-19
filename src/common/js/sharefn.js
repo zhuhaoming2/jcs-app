@@ -1,5 +1,5 @@
 module.exports = {
-	param: {"SecurityCode":"6358978333c23ac554b3cf439dc4d7d0","UserId":"45237"},
+	param: {"SecurityCode":"86d72fe50e95cead0fcfb7824c74e629","UserId":"45237"},
 	isEnter: false,
 	getUserToken: function () {
 		return this.param;
