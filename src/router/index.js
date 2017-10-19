@@ -2,7 +2,6 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Hello from '../components/hello/Hello'
 import Home from '../components/home/home'
-import Expert from '../components/expert/expert'
 import Competition from '../components/competition/competition'
 import Attention from '../components/attention/attention'
 import My from '../components/my/my'
@@ -11,6 +10,7 @@ import Portal from '../components/home/portal'
 import ArticleList from '../components/articlelist/articlelist'
 import PublickHader from '../components/header/publickhader'
 import Menu from '../components/menu/menu'
+import Room from '../components/room/room'
 
 Vue.use(Router)
 
@@ -24,7 +24,7 @@ export default new Router({
             { path: '/', name: 'articlelist', component: ArticleList }
     	]
     },
-    { path: '/expert', name: 'expert', component: Expert },
+    { path: '/room', name: 'room', component: Room },
     { path: '/competition', name: 'competition', component: Competition },
     { path: '/attention', name: 'attention', component: Attention,
         children:[
