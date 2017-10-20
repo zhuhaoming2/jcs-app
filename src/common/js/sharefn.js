@@ -21,7 +21,7 @@ module.exports = {
 	},
 	//验证登录
 	isLogin:function () {
-		if('' == getUserId() || '' == getSecurityCode() || undefined == getUserId() || undefined == getSecurityCode() || 'undefined' == getUserId() || 'undefined' == getSecurityCode()) {
+		if('' == this.getUserId() || '' == this.getSecurityCode() || undefined == this.getUserId() || undefined == this.getSecurityCode() || 'undefined' == this.getUserId() || 'undefined' == this.getSecurityCode()) {
 			console.log(false)
 			return false;
 		} else {

@@ -6,7 +6,7 @@
         <span class="letter">私信</span>
     </header>  
     <nav class="tab">
-      <router-link to="/room">聊天室</router-link>
+      <router-link to="/roomlist">聊天室</router-link>
       <router-link to="/competition">赛事</router-link>
       <router-link to="/attention">关注</router-link>
       <router-link to="/my">我的</router-link>
