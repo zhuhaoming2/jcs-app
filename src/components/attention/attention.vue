@@ -108,7 +108,7 @@ import articleList from '../articlelist/articlelist'
     methods: {
         setMenu: function(name){
             var menu = document.querySelector('#menu');
-            menu.style.left = 0;
+            menu.className = 'menus show';
         },
     	getData: function(data){
     		console.log(data)
