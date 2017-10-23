@@ -1,6 +1,6 @@
 <template>
 	<div class="attention">
-	  	<publick-header :innerelement="innerelement"></publick-header>
+	  	<publick-header @menuClick="setMenu" :headerData="headerData"></publick-header>
 	  	<scroll class="scroll" ref="scroll" :data="scrollData">
 	  		<div style="float:left" class="scroll-wrap">
 	  			<div class="loading-container" v-show="isloading">
@@ -54,6 +54,10 @@ import articleList from '../articlelist/articlelist'
     		authorDataList: [],
     		scrollData: [],
     		isloading: true,
+            headerData: {
+                ele: '<span class="on" id="article">文章</span><span id="teacher">老师</span>',
+                name: 'attention'
+            },
     		queryString: {
     			urls: '/Author/GetFollowedAuhorArticles',
     			data: {
@@ -102,6 +106,10 @@ import articleList from '../articlelist/articlelist'
     	
     },
     methods: {
+        setMenu: function(name){
+            var menu = document.querySelector('#menu');
+            menu.style.left = 0;
+        },
     	getData: function(data){
     		console.log(data)
     		this.$http.jsonp('https:www.jingcaishuo.com'+data.urls,{params:data.data})

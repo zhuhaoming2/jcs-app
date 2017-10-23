@@ -1,17 +1,17 @@
 <template>
-	<div class="menus" id="menu">
+	<div @menuClick="setMenu()" class="menus" id="menu">
 		<div class="right">
 			<dl id="user">
 				<dt><img src="../../common/img/pic.jpg"></dt>
 				<dd>132*****593</dd>
 			</dl>
 			<ul>
-				<router-link to="/home"><li class="active">首页</li></router-link>
-				<router-link to="/room"><li class="active">直播</li></router-link>
-				<router-link to="/competition"><li class="active">赛事</li></router-link>
-				<router-link to="/attention"><li class="active">关注</li></router-link>
-				<router-link to="/vip"><li class="active">VIP文章</li></router-link>
-				<router-link to="/letter"><li class="active">私信</li></router-link>
+				<router-link to="/home"><li id="home">首页</li></router-link>
+				<router-link to="/roomlist"><li id="roomlist">直播</li></router-link>
+				<router-link to="/competition"><li id="competition">赛事</li></router-link>
+				<router-link to="/attention"><li id="attention">关注</li></router-link>
+				<router-link to="/vip"><li id="vip">VIP文章</li></router-link>
+				<router-link to="/letter"><li id="letter">私信</li></router-link>
 			</ul>
 		</div>
 	</div>
@@ -19,7 +19,15 @@
 
 <script type="text/javascript">
 export default {
-	name: 'menu'
+	name: 'menu',
+	created(){
+
+	},
+	methods: {
+		setMenu: function(name){
+			console.log(name)
+		}
+	}
 }
 </script>
 
@@ -34,6 +42,7 @@ export default {
 	background:rgba(0,0,0,0.6);
 	z-index:999;
 	overflow-y:scroll;
+	transition:all 0.3s;
 	ul{
 		text-align:center;
 		list-style:none;
@@ -45,6 +54,9 @@ export default {
 		li{
 			font-size:0.14rem;
 			color:@maincolor;
+		}
+		.router-link-active li{
+			color:@reds;
 		}
 	}
 	.right{
