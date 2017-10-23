@@ -1,19 +1,36 @@
 <template>
 	<div class="header">
-	<span class="back" @click="back()">返回</span>
-        <div v-html="innerelement">
+		<span class="back" @click="back()">返回</span>
+        <div v-html="headerData.ele">
         	<h1 class="jcs-title">聊天室</h1>
         </div>
-        <span ref="menu" class="menu">私信</span>
+        <span ref="menu" @click="menushow()" class="menu">私信</span>
     </div>
 </template>
 <script type="text/javascript">
 export default {
-	props: ['innerelement'],
+	props: {
+		headerData: {
+			name: {
+				type: String,
+				default: 'roomlist'
+			},
+			ele: {
+				type: String,
+				default: '<h1>聊天室</h1>'
+			}
+		}
+	},
 	name: 'publickhader',
+	created(){
+		console.log(this.headerData)
+	},
 	methods: {
 		back: function(){
 			window.history.go(-1)
+		},
+		menushow: function(){
+			this.$emit('menuClick',this.headerData.name)
 		}
 	}
 }

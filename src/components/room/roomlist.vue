@@ -1,6 +1,6 @@
 <template>
 	<div class="room-list">
-		<publick-header :innerelement="innerelement"></publick-header>
+		<publick-header @menuClick="setMenu" :headerData="headerData"></publick-header>
 		<scroll class="scroll" ref="scroll" :data="roomListData">	
 			<div class="roomlist-wrap">			
 				<div class="list" v-for="item in roomListData" :id="item.roomId" @click="gooRoom(item)">
@@ -8,11 +8,11 @@
 						<img :src="item.roomPic" alt="">
 					</div>
 					<div class="info">
-						<div class="msg">							
+						<div class="msg">
 							<p class="master">主播: {{item.lecturerName}}</p>
 							<p class="roompic">门票: <span :class="{on:item.roomStatus==2 || item.roomStatus==1}" v-html="setPrice(item)"></span></p>
 							<p class="time">直播时间:&nbsp;&nbsp; {{formatTime(item.startTime)}} ——  {{formatTime(item.startTime, item.endTime)}}</p>
-					    	<span v-if="item.roomStatus == '1'" @click="setMsg($event);" :roomId = "item.roomId" class="setmsg" :class="{gary:!item.isRoomDscriber}">开启通知</span>
+					    	<span v-if="item.roomStatus == '1'" @click.stop="setMsg($event);" :roomId = "item.roomId" class="setmsg" :class="{gary:!item.isRoomDscriber}">开启通知</span>
 						</div>
 						<div class="explain">
 							<h4>{{item.roomName}}<i v-html="setRoomStatus(item.roomStatus)"></i></h4>
@@ -23,7 +23,9 @@
 				</div>
 			</div>
 		</scroll>
+		<router-view></router-view>
 	</div>
+
 </template>
 
 <script type="text/javascript">
@@ -36,8 +38,11 @@ export default {
 	data (){
 		return {
 			roomPageIndex: 0,
-			innerelement: '<h1>聊天室</h1>',
-			roomListData: []
+			roomListData: [],
+			headerData: {
+				ele: '<h1 class="jcs-title">聊天室</h1>',
+				name: 'roomlist'
+			}
 		}
 	},
 	components: {
@@ -47,10 +52,15 @@ export default {
 		this.getDta();
 	},
 	methods: {
-		gooRoom(item){
-			this.$router.push({ path:'/roomindex', params: item})
+		setMenu: function(name){
+			var menu = document.querySelector('#menu');
+			menu.style.left = 0;
+
 		},
-		getDta(){
+		gooRoom: function(item){
+			this.$router.push({ name: 'roomindex', params: item })
+		},
+		getDta: function(){
 			this.$nextTick(function(){
 				this.$http.jsonp(Common.baseUrl.roomMsgurls+'/Room/GetRoomList',
 					{ 
