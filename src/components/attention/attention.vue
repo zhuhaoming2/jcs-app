@@ -39,7 +39,7 @@
 
 <script>
 import sharefn from '../../common/js/sharefn'
-import publickHeader from '../header/publickhader'
+import publickHeader from '../header/publickheader'
 import Scroll from '../../base/scroll/scroll'
 import loading from 'base/loading/loading'
 import articleList from '../articlelist/articlelist'
@@ -56,7 +56,8 @@ import articleList from '../articlelist/articlelist'
     		isloading: true,
             headerData: {
                 ele: '<span class="on" id="article">文章</span><span id="teacher">老师</span>',
-                name: 'attention'
+                name: 'attention',
+                isShow: true
             },
     		queryString: {
     			urls: '/Author/GetFollowedAuhorArticles',
