@@ -153,7 +153,7 @@ export default {
 	bottom:0px;
 	right:0;
 	color:#fff;
-}
+
 input{
 	-webkit-user-select:auto;
 } 
@@ -322,5 +322,6 @@ li{
 .tb:nth-child(2){
 	color: #fff;
 	background-position: -20px 0;
+}
 }
 </style>
