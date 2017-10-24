@@ -54,11 +54,11 @@ export default {
 	methods: {
 		setMenu: function(name){
 			var menu = document.querySelector('#menu');
-			menu.style.left = 0;
+			menu.className = 'menus show';
 
 		},
 		gooRoom: function(item){
-			this.$router.push({ name: 'roomindex', params: item })
+			this.$router.push({ name: 'roomindex', params: item });
 		},
 		getDta: function(){
 			this.$nextTick(function(){

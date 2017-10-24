@@ -6,7 +6,7 @@
 				<dd>132*****593</dd>
 			</dl>
 			<ul>
-				<router-link to="/home"><li id="home">首页</li></router-link>
+				<router-link to="/home"><li @click="menuHide" id="home">首页</li></router-link>
 				<router-link to="/roomlist"><li id="roomlist">直播</li></router-link>
 				<router-link to="/competition"><li id="competition">赛事</li></router-link>
 				<router-link to="/attention"><li id="attention">关注</li></router-link>
@@ -21,11 +21,20 @@
 export default {
 	name: 'menu',
 	created(){
-
+		
 	},
 	methods: {
 		setMenu: function(name){
 			console.log(name)
+		},
+		menuHide: function(){
+			
+
+		}
+	},
+	watch:{
+		$route(){
+			document.querySelector('.menus').className = 'menus'
 		}
 	}
 }
@@ -42,6 +51,7 @@ export default {
 	background:rgba(0,0,0,0.6);
 	z-index:999;
 	overflow-y:scroll;
+	//display:none;
 	transition:all 0.3s;
 	ul{
 		text-align:center;
@@ -85,5 +95,9 @@ export default {
 			}
 		}
 	}
+}
+.show{
+	//display:block;
+	left:0;
 }
 </style>
