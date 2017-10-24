@@ -4,7 +4,7 @@
         <div v-html="headerData.ele">
         	<h1 class="jcs-title">聊天室</h1>
         </div>
-        <span ref="menu" @click="menushow()" class="menu">私信</span>
+        <span v-show="headerData.isShow" ref="menu" @click="menushow()" class="menu">私信</span>
     </div>
 </template>
 <script type="text/javascript">
@@ -18,16 +18,20 @@ export default {
 			ele: {
 				type: String,
 				default: '<h1>聊天室</h1>'
+			},
+			isShow: {
+				type: Boolean,
+				default: true
 			}
 		}
 	},
-	name: 'publickhader',
+	name: 'publickheader',
 	created(){
 		console.log(this.headerData)
 	},
 	methods: {
 		back: function(){
-			window.history.go(-1)
+			this.$router.back();
 		},
 		menushow: function(){
 			this.$emit('menuClick',this.headerData.name)

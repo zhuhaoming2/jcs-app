@@ -31,7 +31,7 @@
 <script type="text/javascript">
 import Common from '../../common/js/common'
 import Sharefn from '../../common/js/sharefn'
-import PublickHeader from '../header/publickhader'
+import PublickHeader from '../header/publickheader'
 import Scroll from '../../base/scroll/scroll'
 export default {
 	name: 'room-list',
@@ -41,7 +41,8 @@ export default {
 			roomListData: [],
 			headerData: {
 				ele: '<h1 class="jcs-title">聊天室</h1>',
-				name: 'roomlist'
+				name: 'roomlist',
+				isShow: true
 			}
 		}
 	},
