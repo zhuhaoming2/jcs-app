@@ -1,5 +1,5 @@
 <template>
-    <div class="art-list" id="art-list">
+    <div class="art-list" :class="{artlistnomargin:topMargin}" id="art-list">
         <div class="listcon" v-for="item in articleDataList">
             <div class="txtbox">
                 <dl @click="goauthor(item.author_id)" :author_id="item.author_id">
@@ -27,7 +27,16 @@
 </template>
 <script type="text/javascript">
 export default{
-    props:['articleDataList'],
+    props:{
+        articleDataList: {
+            type: Array,
+            default: []
+        },
+        topMargin: {
+            type: Boolean,
+            default: false
+        }
+    },
     data() {
         return {
 
@@ -78,6 +87,7 @@ export default{
 <style lang="less">
 @import "../../common/less/base.less";
 .art-list{margin-top:10px;}
+.artlistnomargin{margin-top:0;}
 .listcon{width:100%;overflow:hidden;margin-bottom:8px;background:@whites;padding-left:10px;}
 .topb img{width:100%}
 .txtbox{float:left;width:100%;padding:8px 10px 5px 0;overflow:hidden;}

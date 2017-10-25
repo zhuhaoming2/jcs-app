@@ -3,10 +3,10 @@
     <publick-header :headerData="headerData"></publick-header>
     <scroll class="container" :data="articleDataList">
       <div class="scroll-wrap">
+        <article-list :topMargin="true" :articleDataList = "articleDataList"></article-list>
         <div class="loading-container" v-show="!articleDataList.length">
           <loading></loading>
         </div>
-        <article-list :articleDataList = "articleDataList"></article-list>
       </div>
     </scroll>
   </div>
@@ -26,7 +26,7 @@ export default {
       headerData: {
           ele: '<h1>VIP文章</h1>',
           name: 'vip',
-          isShow: true
+          isShow: false
       },
     }   
   },
@@ -47,19 +47,14 @@ export default {
       this.types = 1;
     },
     getData(id,done) {
+      var that = this;
       this.$nextTick(function () {
         this.$http.jsonp(
           'http://www.jingcaishuo.com/article/list/vip?time=' + Math.random(),
           { params:{language: 'M',articleId: id}}
         ).then(function(res) {
-          console.log(res)
-          if(this.types){
-           
-          }else{
-            
-          }
-          //this.bottom = this.articleDataList[this.articleDataList.length-1].id;
-          //done()
+          console.log(res);
+            that.articleDataList = res.data.Articles;
         })
       })
     }
@@ -129,7 +124,7 @@ export default {
   .container{
     width:100%;
     position:absolute;
-    top:94px;
+    top:50px;
     bottom:0;
     overflow-y:hidden;
   }
