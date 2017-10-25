@@ -2,7 +2,7 @@
   <div id="banner">
     <swiper  :options="banners.length>1 ? swiperOption : swiperOption2"  ref="mySwiper">
         <swiper-slide v-for="item in banners">  
-            <img :src="item.img_url">
+            <img :src="baseUrl+item.img_url">
         </swiper-slide> 
         <div class="swiper-pagination" slot="pagination"></div>  
     </swiper>
@@ -19,7 +19,8 @@ export default {
         swiperSlide  
     },  
     data() {  
-        return {  
+        return { 
+            baseUrl:'http://www.jingcaishuo.com/', 
             swiperOption: {   
                 autoplay: 1000,
                 loop : true,

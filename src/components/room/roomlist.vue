@@ -31,8 +31,8 @@
 <script type="text/javascript">
 import Common from '../../common/js/common'
 import Sharefn from '../../common/js/sharefn'
-import PublickHeader from '../header/publickheader'
-import Scroll from '../../base/scroll/scroll'
+import PublickHeader from 'base/header/publickheader'
+import Scroll from 'base/scroll/scroll'
 export default {
 	name: 'room-list',
 	data (){

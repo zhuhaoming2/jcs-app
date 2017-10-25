@@ -1,11 +1,11 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Hello from '../components/hello/Hello'
 import Home from '../components/home/home'
 import Competition from '../components/competition/competition'
 import Attention from '../components/attention/attention'
 import My from '../components/my/my'
 import Menu from '../components/menu/menu'
+import Vip from '../components/vip/vip'
 import RoomList from '../components/room/roomlist'
 import RoomIndex from '../components/roomindex/roomindex'
 
@@ -20,6 +20,7 @@ export default new Router({
             {path:'/roomindex', name: 'roomindex', component: RoomIndex}
         ]
     },
+    { path: '/vip', name: 'vip', component: Vip},
     { path: '/competition', name: 'competition', component: Competition },
     { path: '/attention', name: 'attention', component: Attention },
     { path: '/my', name: 'my', component: My }

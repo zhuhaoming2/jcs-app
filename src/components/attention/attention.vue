@@ -39,10 +39,10 @@
 
 <script>
 import sharefn from '../../common/js/sharefn'
-import publickHeader from '../header/publickheader'
-import Scroll from '../../base/scroll/scroll'
+import publickHeader from 'base/header/publickheader'
+import Scroll from 'base/scroll/scroll'
 import loading from 'base/loading/loading'
-import articleList from '../articlelist/articlelist'
+import articleList from 'base/articlelist/articlelist'
   export default {
     name: 'attention',
     data() {

@@ -81,7 +81,7 @@
 
 <script>
 import shareFn from '../../common/js/sharefn'
-import publickHeader from '../header/publickheader'
+import publickHeader from 'base/header/publickheader'
 export default {
 	name: 'my',
 	data(){

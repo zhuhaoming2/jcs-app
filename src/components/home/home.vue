@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <header>
-        <span class="vip">文章</span>
+        <router-link to="/vip"><span class="vip">文章</span></router-link>
         <h1 class="jcs-title">精彩说</h1>
         <span class="letter">私信</span>
     </header>  
@@ -27,9 +27,9 @@
 <script type="text/ecmascript-6">
 import Scroll from 'base/scroll/scroll'
 import loading from 'base/loading/loading'
-import banner from '../banner/banner'
+import banner from 'base/banner/banner'
 import portal from '../home/portal'
-import articleList from '../articlelist/articlelist'
+import articleList from 'base/articlelist/articlelist'
 
 export default {
 	data() {
@@ -53,8 +53,8 @@ export default {
       ).then(function(res) {
         this.banners = res.data.result.data.Banner;
         this.portals = res.data.result.data.Portal;
-                this.articleDataList = res.data.result.artileList.Articles;
-                this.bottom = this.articleDataList[this.articleDataList.length-1].id;
+        this.articleDataList = res.data.result.artileList.Articles;
+        this.bottom = this.articleDataList[this.articleDataList.length-1].id;
       })
     })
 	},
@@ -75,6 +75,7 @@ export default {
         ).then(function(res) {
           this.banners = res.data.result.data.Banner;
           this.portals = res.data.result.data.Portal;
+
           if(this.types){
             this.articleDataList = this.articleDataList.concat(res.data.result.artileList.Articles);
           }else{
@@ -108,6 +109,9 @@ header{
   color:#fff;
   font-size:0.12rem;
   text-align:center;
+}
+header a{
+  color:@whites;
 }
 .vip{
   float: left;
