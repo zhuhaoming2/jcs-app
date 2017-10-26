@@ -65,6 +65,7 @@ module.exports = {
 
 	setParms: function (s) {
 		var url = location.search;
+		console.log(location.href)
 		if(url.indexOf('amp;')>-1){
 			url = url.replace(/amp;/g,'');
 		}

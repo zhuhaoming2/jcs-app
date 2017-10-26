@@ -6,6 +6,7 @@ import router from './router'
 import vueResource from 'vue-resource'
 import vueSwiper from 'vue-awesome-swiper'
 import VueLazyLoad from 'vue-lazyload'
+import Axios from 'axios'
 //import Scroll from 'better-scroll'
 Vue.config.productionTip = false
 
@@ -21,4 +22,4 @@ Vue.use(VueLazyLoad,{
 })
 Vue.use(vueResource);
 Vue.use(vueSwiper);
-//Vue.use(Scroll);
+Vue.prototype.$ajax = Axios;

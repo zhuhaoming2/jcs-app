@@ -1,6 +1,6 @@
 <template>
     <div class="art-list" :class="{artlistnomargin:topMargin}" id="art-list">
-        <div class="listcon" v-for="item in articleDataList">
+        <div class="listcon" v-for="item in articleDataList" @click="goarticle(item)">
             <div class="txtbox">
                 <dl @click="goauthor(item.author_id)" :author_id="item.author_id">
                     <dt>
@@ -11,10 +11,10 @@
                         <span class="tm">{{timeformat(item.last_modified)}}</span>
                     </dd>
                 </dl>
-                <span class="txt" @click="goarticle(item.id)" v-html="item.tabView">
+                <span class="txt" v-html="item.tabView">
                     {{item.tabView}}
                 </span>
-                <span class="txt" @click="goarticle(item.id)">{{item.digest}}</span>
+                <span class="txt">{{item.digest}}</span>
             </div>
             <div class="titbox match" @click="gomatch(item.matches[0].entry_id)" v-if="item.matches.length>0">
                 <span># {{item.matches[0].cup_name}}</span>
@@ -49,13 +49,8 @@ export default{
         goauthor(Id){
             console.log(Id)
         },
-        goarticle(Id){
-            this.$router.push({
-                path: '../detail/artdetail',
-                query: {
-                    id: Id
-                }
-            })
+        goarticle(item){
+            this.$emit('goarticle',item);
         },
         gomatch(Id){
             console.log(Id)

@@ -7,14 +7,19 @@ import My from '../components/my/my'
 import Menu from '../components/menu/menu'
 import Vip from '../components/vip/vip'
 import RoomList from '../components/room/roomlist'
-import RoomIndex from '../components/roomindex/roomindex'
+import RoomIndex from '../components/room/roomindex'
+import Article from '../components/articledetail/articledetail'
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
     { path: '/', name: 'home', component: Home },
-    { path: '/home', name: 'home', component: Home },
+    { path: '/home', name: 'home', component: Home,
+        children:[
+            { path:':id', component: Article}
+        ]
+    },
     { path: '/roomlist', name: 'roomlist', component: RoomList,
      children:[
             {path:'/roomindex', name: 'roomindex', component: RoomIndex}

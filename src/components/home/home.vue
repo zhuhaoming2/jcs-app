@@ -18,9 +18,10 @@
         </div>
         <banner :banners = "banners"></banner>
         <portal :portals = "portals"></portal>
-        <article-list :articleDataList = "articleDataList"></article-list>
+        <article-list @goarticle="goarticle" :articleDataList = "articleDataList"></article-list>
       </div>
     </scroll>
+    <router-view></router-view>
   </div>
 </template>
 
@@ -84,6 +85,12 @@ export default {
           this.bottom = this.articleDataList[this.articleDataList.length-1].id;
           done()
         })
+      })
+    },
+    goarticle(item){
+      this.$router.push({
+        path: `/home/${item.id}?id=${item.id}`,
+        props: {id: item.id}
       })
     }
 
